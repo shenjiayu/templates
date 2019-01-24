@@ -1,0 +1,89 @@
+@block tc-tag{
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  display: inline-block;
+  padding: var(--md-padding);
+
+  & a {
+    color: inherit;
+    font-weight: bold;
+  }
+
+  @modifier primary {
+    background-color: color(var(--primary-color) lightness(90%));
+    border-color: color(var(--primary-color) lightness(85%));
+    color: color(var(--primary-color) blackness(40%));
+  }
+
+  @modifier secondary {
+    background-color: color(var(--secondary-color) lightness(90%));
+    border-color: color(var(--secondary-color) lightness(85%));
+    color: color(var(--secondary-color) blackness(95%));
+  }
+
+  @modifier success {
+    background-color: color(var(--success-color) lightness(90%));
+    border-color: color(var(--success-color) lightness(85%));
+    color: color(var(--success-color) blackness(40%));
+  }
+
+  @modifier danger {
+    background-color: color(var(--danger-color) lightness(90%));
+    border-color: color(var(--danger-color) lightness(85%));
+    color: color(var(--danger-color) blackness(40%));
+  }
+
+  @modifier warning {
+    background-color: color(var(--warning-color) lightness(90%));
+    border-color: color(var(--warning-color) lightness(85%));
+    color: color(var(--warning-color) blackness(40%));
+  }
+
+  @modifier info {
+    background-color: color(var(--info-color) lightness(90%));
+    border-color: color(var(--info-color) lightness(85%));
+    color: color(var(--info-color) blackness(40%));
+  }
+
+  @modifier light {
+    background-color: color(var(--light-color) lightness(98%));
+    border-color: color(var(--light-color) lightness(95%));
+    color: color(var(--light-color) blackness(85%));
+  }
+
+  @modifier dark {
+    background-color: color(var(--dark-color) lightness(90%));
+    border-color: color(var(--dark-color) lightness(85%));
+    color: black;
+  }
+
+  @modifier sm {
+    padding: var(--sm-padding);
+  }
+
+  @modifier md {
+    padding: var(--md-padding);
+  }
+
+  @modifier lg {
+    padding: var(--lg-padding);
+  }
+
+  @element close {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    float: right;
+    font-weight: 700;
+    opacity: .5;
+    position: relative;
+    text-shadow: 0 1px 0 white;
+    right: -.5rem;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

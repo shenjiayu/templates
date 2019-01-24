@@ -1,0 +1,186 @@
+@block tc-table {
+  margin-bottom: 1rem;
+  max-width: 100%;
+  width: 100%;
+
+  & caption {
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+  }
+
+  & th,
+  & td {
+    border-bottom: var(--border);
+    border-top: var(--border);
+    padding: var(--md-padding);
+  }
+
+  & thead th {
+    text-transform: capitalize;
+    vertical-align: bottom;
+  }
+
+  & tbody td,
+  & tfoot td {
+    vertical-align: top;
+  }
+
+  @modifier striped {
+    & > tbody > tr:nth-child(odd) {
+      background-color: var(--light-gray);
+    }
+  }
+
+  @modifier bordered {
+    & th,
+    & td {
+      border: var(--border);
+    }
+  }
+
+  @modifier hoverable {
+    & > tbody tr:hover {
+      background-color: color(var(--light-gray) blackness(5%));
+    }
+  }
+
+  @modifier controls {
+    & tr > :first-child {
+      width: 3rem;
+
+      & .tc-checkbox,
+      & .tc-radio {
+        display: block;
+      }
+    }
+  }
+
+  @modifier responsive {
+    @media (--lg-viewport-down) {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+
+  @modifier small {
+    font-size: var(--sm-font-size);
+
+    & caption {
+      padding-bottom: .25rem;
+      padding-top: .25rem;
+    }
+
+    & th,
+    & td {
+      padding: var(--sm-padding);
+    }
+  }
+
+  @modifier large {
+    font-size: var(--lg-font-size);
+
+    & caption {
+      padding-bottom: .5rem;
+      padding-top: .5rem;
+    }
+
+    & th,
+    & td {
+      padding: var(--lg-padding);
+    }
+  }
+
+  @element row {
+    transition: background-color .15s;
+
+    @modifier selected {
+      background-color: color(var(--primary-color) lightness(95%));
+
+      &:hover {
+        background-color: color(var(--primary-color) lightness(95%)) !important;
+      }
+    }
+
+    @modifier disabled {
+      background-color: var(--light-gray);
+      opacity: .65;
+
+      &:hover {
+        background-color: var(--light-gray) !important;
+      }
+    }
+  }
+
+  @element cell {
+    @modifier sortable {
+      cursor: pointer;
+    }
+
+    @modifier ascended {
+      & .tc-table__icon--sort > :first-child {
+        border-bottom-color: var(--primary-color);
+        cursor: default;
+      }
+    }
+
+    @modifier descended {
+      & .tc-table__icon--sort > :last-child {
+        border-top-color: var(--primary-color);
+        cursor: default;
+      }
+    }
+
+    @modifier checkable {
+      width: 3.25rem;
+
+      & > .tc-checkbox,
+      & > .tc-radio {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  @element icon {
+    display: inline-block;
+    vertical-align: middle;
+
+    @modifier sort {
+      height: 1.5em;
+      position: relative;
+      width: 1em;
+
+      & > :first-child,
+      & > :last-child {
+        border: .25em solid transparent;
+        cursor: pointer;
+        display: inline-block;
+        height: 0;
+        left: 50%;
+        margin-bottom: .1em;
+        margin-top: .1em;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 0;
+      }
+
+      & > :first-child {
+        border-bottom-color: var(--secondary-color);
+        border-top-width: 0;
+        bottom: 50%;
+      }
+
+      & > :last-child {
+        border-bottom-width: 0;
+        border-top-color: var(--secondary-color);
+        top: 50%;
+      }
+    }
+  }
+
+  @element content {
+    display: inline-block;
+    max-width: 20rem;
+    overflow-wrap: break-word;
+    vertical-align: inherit;
+  }
+}

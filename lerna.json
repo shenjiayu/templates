@@ -1,0 +1,16 @@
+{
+  "lerna": "2.9.0",
+  "version": "independent",
+  "command": {
+    "bootstrap": {
+      "hoist": true
+    },
+    "publish": {
+      "skipGit": true,
+      "skipNpm": true
+    }
+  },
+  "packages": [
+    "packages/*"
+  ]
+}

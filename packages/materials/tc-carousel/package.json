@@ -1,0 +1,39 @@
+{
+  "name": "tc-carousel",
+  "version": "0.1.0",
+  "description": "Carousel component for Vue.js.",
+  "main": "dist/tc-carousel.common.js",
+  "module": "dist/tc-carousel.ems.js",
+  "browser": "dist/tc-carousel.js",
+  "style": "dist/tc-carousel.css",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Chen Fengyuan",
+    "email": "chenfengyuan@outlook.com",
+    "url": "http://chenfengyuan.com"
+  },
+  "files": ["src", "dist", "types"],
+  "keywords": ["travel cart", "carousel", "vue", "vue-component", "components", "ui", "framework", "web", "front-end"],
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "postcss src/index.css -o dist/tc-carousel.css --no-map",
+    "build:js": "webpack --env.production --config ../../webpack.config.js",
+    "clear": "rimraf dist",
+    "compress": "npm run compress:js && npm run compress:css",
+    "compress:css": "postcss dist/tc-carousel.css -u cssnano -o dist/tc-carousel.min.css --no-map",
+    "compress:js": "webpack --env.production --env.minify --config ../../webpack.config.js",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:es": "eslint src test --ext .js,.jsx,.vue --fix",
+    "lint:ts": "tslint src/**/*.ts --fix",
+    "postbuild": "npm run compress",
+    "prebuild": "npm run clear",
+    "release": "npm run lint && npm run build && npm test",
+    "test": "karma start ../../karma.config.js"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "vue": "^2.4.0"
+  }
+}

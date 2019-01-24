@@ -1,0 +1,106 @@
+:root {
+  /* Fonts */
+  --font-size: 16px;
+  --font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+
+  /* Font sizes */
+  --sm-font-size: .875rem;
+  --md-font-size: 1rem;
+  --lg-font-size: 1.25rem;
+
+  /* Colors (http://clrs.cc) */
+  --navy: #001f3f;
+  --blue: #0074d9;
+  --aqua: #7fdbff;
+  --teal: #39cccc;
+  --olive: #3d9970;
+  --green: #2ecc40;
+  --lime: #01ff70;
+  --yellow: #ffdc00;
+  --orange: #ff851b;
+  --red: #ff4136;
+  --maroon: #85144b;
+  --fuchsia: #f012be;
+  --purple: #b10dc9;
+  --black: #111;
+  --gray: #aaa;
+  --silver: #ddd;
+  --white: #fff;
+  --dark-gray: #666;
+  --light-gray: #f8f8f8;
+
+  --primary-color: var(--blue);
+  --secondary-color: var(--gray);
+  --success-color: var(--green);
+  --danger-color: var(--red);
+  --warning-color: var(--orange);
+  --info-color: var(--teal);
+  --light-color: var(--silver);
+  --dark-color: var(--black);
+  --link-color: var(--blue);
+
+  --color: var(--black);
+  --background-color: var(--white);
+
+  /* Borders */
+  --border-color: #eee;
+  --border-radius: .25rem;
+  --border: 1px solid var(--border-color);
+  --sm-border-radius: .1875rem;
+  --md-border-radius: .25rem;
+  --lg-border-radius: .3125rem;
+
+  /* Paddings */
+  --sm-padding: .25rem .5rem;
+  --md-padding: .4375rem .875rem;
+  --lg-padding: .5rem 1rem;
+
+  /* Heights */
+  --sm-height: 2rem;
+  --md-height: 2.5rem;
+  --lg-height: 3rem;
+
+  /* Grid breakpoints */
+  --xs-screen-width: 0;
+  --sm-screen-width: 576px;
+  --md-screen-width: 768px;
+  --lg-screen-width: 992px;
+  --xl-screen-width: 1200px;
+
+  /* Grid containers */
+  --sm-container-width: 540px;
+  --md-container-width: 720px;
+  --lg-container-width: 960px;
+  --xl-container-width: 1140px;
+
+  /* Z-indexes */
+  --dropdown-z-index: 1000;
+  --popover-z-index: 1010;
+  --tooltip-z-index: 1020;
+  --loading-z-index: 2000;
+
+  /* Mixins */
+  --clearfix: {
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  };
+}
+
+@custom-media --sm-viewport-up (min-width: 576px);
+@custom-media --md-viewport-up (min-width: 768px);
+@custom-media --lg-viewport-up (min-width: 992px);
+@custom-media --xl-viewport-up (min-width: 1200px);
+
+@custom-media --sm-viewport-down (max-width: 575px);
+@custom-media --md-viewport-down (max-width: 767px);
+@custom-media --lg-viewport-down (max-width: 991px);
+@custom-media --xl-viewport-down (max-width: 1199px);
+
+@custom-media --xs-viewport-only (max-width: 575px);
+@custom-media --sm-viewport-only (min-width: 576px) and (max-width: 767px);
+@custom-media --md-viewport-only (min-width: 768px) and (max-width: 991px);
+@custom-media --lg-viewport-only (min-width: 992px) and (max-width: 1199px);
+@custom-media --xl-viewport-only (min-width: 1200px);

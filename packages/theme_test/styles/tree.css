@@ -1,0 +1,151 @@
+@block tc-tree {
+  @modifier guides {
+    & .tc-tree__item {
+      padding-left: 1.5rem;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+      }
+
+      &::before {
+        border-left: 1px dashed var(--light-color);
+        bottom: 0;
+        left: .75rem;
+        top: 0;
+        transform: translateX(-50%);
+        width: 0;
+      }
+
+      &::after {
+        border-top: 1px dashed var(--light-color);
+        height: 0;
+        left: .75rem;
+        top: .75rem;
+        width: 1.5rem;
+      }
+
+      &:last-child {
+        &::before {
+          bottom: auto;
+          top: -.75rem;
+          height: 1.5rem;
+        }
+      }
+
+      & .tc-tree__item:first-child::before {
+        top: -.75rem;
+      }
+    }
+
+    & .tc-tree__item--expandable {
+      &::after {
+        width: .75rem;
+      }
+
+      & .tc-tree__item {
+        &:first-child {
+          &::before {
+            bottom: 0;
+            top: 0;
+          }
+        }
+
+        &:last-child {
+          &::before {
+            bottom: auto;
+            top: 0;
+            height: .75rem;
+          }
+        }
+      }
+    }
+  }
+
+  @modifier hoverable {
+    & .tc-tree__content {
+      transition: background-color .15s;
+
+      &:hover {
+        background-color: color(var(--light-gray) blackness(5%));
+      }
+    }
+  }
+
+  @element list {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  @element item {
+    @modifier disabled {
+      color: var(--secondary-color);
+    }
+
+    & .tc-tree__item {
+      padding-left: 1.5rem;
+    }
+  }
+
+  @element content {
+    align-items: center;
+    display: flex;
+    padding-left: 1.5rem;
+    position: relative;
+
+    & :last-child {
+      flex: 1;
+    }
+  }
+
+  @element button {
+    background-color: transparent;
+    border: 0;
+    height: 100%;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    transition: transform .3s;
+    width: 1.5em;
+
+    &:focus {
+      outline: none;
+    }
+
+    @modifier rotated {
+      transform: rotate(90deg);
+    }
+
+    @modifier loading {
+      & .tc-icon {
+        animation: tc-animation--rotation 1s linear infinite;
+      }
+    }
+
+    & .tc-icon {
+      height: .75rem;
+      left: 50%;
+      margin-left: -.375rem;
+      margin-top: -.375rem;
+      position: absolute;
+      top: 50%;
+      width: .75rem;
+    }
+  }
+
+  @element icon {
+    height: 1rem;
+    margin-right: .5rem;
+    stroke-width: 2;
+    vertical-align: top;
+    width: 1rem;
+  }
+
+  @element text {
+  }
+}

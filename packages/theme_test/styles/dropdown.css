@@ -1,0 +1,103 @@
+@block tc-dropdown {
+  background-clip: padding-box;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  color: var(--color);
+  float: left;
+  font-size: 1rem;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  min-width: 10rem;
+  padding: .5rem 0;
+  position: absolute;
+  text-align: left;
+  text-align: start;
+  top: 100%;
+  z-index: var(--dropdown-z-index);
+
+  @modifier top {
+    margin-bottom: .125em;
+  }
+
+  @modifier right {
+    margin-left: .125em;
+  }
+
+  @modifier bottom {
+    margin-top: .125em;
+  }
+
+  @modifier left {
+    margin-right: .125em;
+  }
+
+  @element item {
+    background: 0 0;
+    border: 0;
+    clear: both;
+    color: var(--color);
+    display: block;
+    font-weight: 400;
+    line-height: inherit;
+    padding: .25rem 1.25rem;
+    text-align: inherit;
+    white-space: nowrap;
+    width: 100%;
+
+    &:focus,
+    &:hover {
+      background-color: var(--light-gray);
+      color: var(--color);
+      text-decoration: none;
+    }
+
+    &:active,
+    &:focus:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @modifier divider {
+      height: 0;
+      margin: .5rem 0;
+      padding: 0;
+      overflow: hidden;
+      border-top: var(--border);
+    }
+
+    @modifier header {
+      color: var(--secondary-color);
+      font-size: .875rem;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding: .5rem 1.5rem;
+      white-space: nowrap;
+
+      &:focus,
+      &:hover {
+        background-color: transparent;
+        color: var(--secondary-color);
+      }
+    }
+
+    @modifier disabled {
+      background-color: transparent;
+      color: var(--secondary-color);
+
+      &:focus,
+      &:hover {
+        background-color: transparent;
+        color: var(--secondary-color);
+      }
+
+      &:active,
+      &:focus:hover {
+        background-color: transparent;
+        color: var(--color);;
+      }
+    }
+  }
+}

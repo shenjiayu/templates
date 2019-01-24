@@ -1,0 +1,123 @@
+@block tc-badge {
+  border-radius: var(--border-radius);
+  border: 0;
+  display: inline-block;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  padding: .25em .4em;
+  white-space: nowrap;
+
+  @modifier primary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  @modifier secondary {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+
+  @modifier success {
+    background-color: var(--success-color);
+    color: white;
+  }
+
+  @modifier danger {
+    background-color: var(--danger-color);
+    color: white;
+  }
+
+  @modifier warning {
+    background-color: var(--warning-color);
+    color: white;
+  }
+
+  @modifier info {
+    background-color: var(--info-color);
+    color: white;
+  }
+
+  @modifier light {
+    background-color: var(--light-color);
+    color: var(--color);
+  }
+
+  @modifier dark {
+    background-color: var(--dark-color);
+    color: white;
+  }
+
+  @modifier rounded {
+    border-radius: 10rem;
+    padding-left: .6em;
+    padding-right: .6em;
+  }
+}
+
+a.tc-badge {
+  transition: background-color .15s ease-in-out;
+
+  &:focus,
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  &.tc-badge--primary {
+    &:focus,
+    &:hover {
+      background-color: color(var(--primary-color) blackness(25%));
+    }
+  }
+
+  &.tc-badge--secondary {
+    &:focus,
+    &:hover {
+      background-color: color(var(--secondary-color) blackness(40%));
+    }
+  }
+
+  &.tc-badge--success {
+    &:focus,
+    &:hover {
+      background-color: color(var(--success-color) blackness(25%));
+    }
+  }
+
+  &.tc-badge--danger {
+    &:focus,
+    &:hover {
+      background-color: color(var(--danger-color) blackness(10%));
+    }
+  }
+
+  &.tc-badge--warning {
+    &:focus,
+    &:hover {
+      background-color: color(var(--warning-color) blackness(10%));
+    }
+  }
+
+  &.tc-badge--info {
+    &:focus,
+    &:hover {
+      background-color: color(var(--info-color) blackness(25%));
+    }
+  }
+
+  &.tc-badge--light {
+    &:focus,
+    &:hover {
+      background-color: color(var(--light-color) blackness(25%));
+      color: var(--color);
+    }
+  }
+
+  &.tc-badge--dark {
+    &:focus,
+    &:hover {
+      background-color: black;
+    }
+  }
+}

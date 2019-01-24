@@ -1,0 +1,35 @@
+@block tc-breadcrumb {
+  background-color: var(--light-gray);
+  display: flex;
+  list-style: none;
+  margin: 0;
+  max-width: 100%;
+  padding: .5rem 1rem;
+  width: 100%;
+
+  @element item {
+    color: var(--link-color);
+    cursor: pointer;
+
+    & + .tc-breadcrumb__item {
+      &::before {
+        display: inline-block;
+        padding-right: .5rem;
+        padding-left: .5rem;
+        color: var(--secondary-color);
+        content: attr(data-separator);
+      }
+    }
+
+    @modifier active {
+      color: var(--secondary-color);
+      cursor: default;
+
+      &:focus,
+      &:hover {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+    }
+  }
+}

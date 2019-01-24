@@ -1,0 +1,65 @@
+@block tc-radio {
+  display: inline-block;
+  min-height: 1.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+
+  & + .tc-radio {
+    margin-left: 1rem;
+  }
+
+  @element input, indicator {
+    left: 0;
+    position: absolute;
+    top: .25rem;
+    width: 1rem;
+  }
+
+  @element input {
+    height: 1rem;
+    opacity: 0;
+    z-index: 1;
+
+    &:focus + .tc-radio__indicator {
+      &::after {
+        box-shadow: 0 0 3px var(--primary-color);
+      }
+    }
+
+    &:checked + .tc-radio__indicator {
+      &::after {
+        border: .3rem solid var(--primary-color);
+      }
+    }
+
+    &:disabled + .tc-radio__indicator {
+      background-color: var(--light-color);
+    }
+  }
+
+  @element indicator {
+    background-color: white;
+    border-radius: 50%;
+    display: block;
+    font-size: 0;
+    height: 1rem;
+    width: 1rem;
+
+    &::after {
+      border: 1px solid var(--secondary-color);
+      border-radius: 50%;
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: all .15s;
+    }
+  }
+
+  @modifier disabled {
+    opacity: .65;
+  }
+}

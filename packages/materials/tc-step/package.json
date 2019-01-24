@@ -1,0 +1,39 @@
+{
+  "name": "tc-step",
+  "version": "0.1.0",
+  "description": "Step component for Vue.js.",
+  "main": "dist/tc-step.common.js",
+  "module": "dist/tc-step.ems.js",
+  "browser": "dist/tc-step.js",
+  "style": "dist/tc-step.css",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Chen Fengyuan",
+    "email": "chenfengyuan@outlook.com",
+    "url": "http://chenfengyuan.com"
+  },
+  "files": ["src", "dist", "types"],
+  "keywords": ["travel cart", "step", "vue", "vue-component", "components", "ui", "framework", "web", "front-end"],
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "postcss src/index.css -o dist/tc-step.css --no-map",
+    "build:js": "webpack --env.production --config ../../webpack.config.js",
+    "clear": "rimraf dist",
+    "compress": "npm run compress:js && npm run compress:css",
+    "compress:css": "postcss dist/tc-step.css -u cssnano -o dist/tc-step.min.css --no-map",
+    "compress:js": "webpack --env.production --env.minify --config ../../webpack.config.js",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:es": "eslint src test --ext .js,.jsx,.vue --fix",
+    "lint:ts": "tslint src/**/*.ts --fix",
+    "postbuild": "npm run compress",
+    "prebuild": "npm run clear",
+    "release": "npm run lint && npm run build && npm test",
+    "test": "karma start ../../karma.config.js"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "vue": "^2.4.0"
+  }
+}

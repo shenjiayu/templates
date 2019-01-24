@@ -1,0 +1,63 @@
+@block tc-switch {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+
+  @element input {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &:checked ~ .tc-switch__indicator {
+      background-color: var(--primary-color);
+
+      &::after {
+        left: 50%;
+      }
+    }
+
+    &:disabled ~ .tc-switch__indicator {
+      opacity: .65;
+    }
+  }
+
+  @element indicator {
+    background-color: var(--secondary-color);
+    border: .125rem solid transparent;
+    border-radius: 10rem;
+    box-sizing: content-box;
+    display: inline-block;
+    height: 1rem;
+    position: relative;
+    transition: background-color .3s;
+    vertical-align: middle;
+    width: 2rem;
+
+    &::after {
+      background-color: white;
+      border-radius: 50%;
+      content: "";
+      height: 1rem;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: left .3s;
+      width: 1rem;
+    }
+  }
+
+  @element label {
+    vertical-align: middle;
+
+    @modifier left {
+      margin-right: .5rem;
+    }
+
+    @modifier right {
+      margin-left: .5rem;
+    }
+  }
+}

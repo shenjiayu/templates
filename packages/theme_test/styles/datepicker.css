@@ -1,0 +1,155 @@
+@block tc-datepicker {
+    position: relative;
+
+    & * {
+        box-sizing: border-box;
+    }
+
+    @element calendar {
+        position: absolute;
+        z-index: 100;
+        background-color: white;
+        width: 300px;
+        border: 1px solid #ccc;
+
+        &.right-aligned {
+            right: 0;
+        }
+        
+        header {
+            display: block;
+            line-height: 40px;
+            span {
+                display: inline-block;
+                text-align: center;
+                width: calc(100 - (100/7)*2)%;
+                float: left;
+            }
+
+            .prev,
+            .next {
+                width: calc(100/7)%;
+                float: left;
+                text-indent: -10000px;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    border: 6px solid transparent;
+                }
+            }
+
+            .prev {
+                &::after {
+                    border-right: 10px solid #000;
+                    margin-left: -5px;
+                }
+                &.disabled:after {
+                    border-right: 10px solid #ddd;
+                }
+            }
+
+            .next {
+                &::after {
+                    border-left: 10px solid #000;
+                    margin-left: 5px;
+                }
+                &.disabled::after {
+                    border-left: 10px solid #ddd;
+                }
+            }
+
+            .prev:not(.disabled),
+            .next:not(.disabled),
+            .up:not(.disabled) {
+                cursor: pointer;
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+        }
+
+        .disabled {
+            color: #ddd;
+            cursor: default;
+        }
+        .flex-rtl {
+            display: flex;
+            width: inherit;
+            flex-wrap: wrap;
+        }
+        .cell {
+            display: inline-block;
+            padding: 0 5px;
+            width: calc(100/7)%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid transparent;
+
+            &:not(.blank):not(.disabled).day,
+            &:not(.blank):not(.disabled).month,
+            &:not(.blank):not(.disabled).year {
+                cursor: pointer;
+                &:hover {
+                    border: 1px solid #4bd;
+                }
+            }
+            &.selected {
+                background-color: #4bd;
+                &:hover {
+                    background-color: #4bd;
+                }
+                &.highlighted {
+                    background-color: #4bd;
+                }
+            }
+            &.highlighted {
+                background-color: #cae5ed;
+                &.disabled {
+                    color: #a3a3a3;
+                }
+            }
+            &.grey {
+                color: #888;
+                &:hover {
+                    background-color: inherit;
+                }
+            }
+            &.day-header {
+                font-size: 75%;
+                white-space: nowrap;
+                cursor: inherit;
+                &:hover {
+                    background-color: inherit;
+                }
+            }
+        }
+        .month,
+        .year {
+            width: 33.333%;
+        }
+    }
+
+    @element clear-button {
+        cursor: pointer;
+        font-style: normal;
+        &.disabled {
+            color: #999;
+            cursor: default;
+        }
+    }
+
+    @element calendar-button {
+        cursor: pointer;
+        font-style: normal;
+        &.disabled {
+            color: #999;
+            cursor: default;
+        }
+    }
+}

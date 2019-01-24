@@ -1,0 +1,41 @@
+{
+  "name": "tc-theme-default",
+  "version": "0.1.0",
+  "description": "The default theme for TC.",
+  "main": "dist/tc-theme-default.css",
+  "style": "dist/tc-theme-default.css",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Chen Fengyuan",
+    "email": "chenfengyuan@outlook.com",
+    "url": "http://chenfengyuan.com"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "travel cart",
+    "theme",
+    "theme-default",
+    "vue",
+    "vue-component",
+    "components",
+    "ui",
+    "framework",
+    "web",
+    "front-end"
+  ],
+  "scripts": {
+    "build": "postcss src/index.css -o dist/tc-theme-default.css --no-map",
+    "clear": "rimraf dist",
+    "compress": "postcss dist/tc-theme-default.css -u cssnano -o dist/tc-theme-default.min.css --no-map",
+    "postbuild": "npm run compress",
+    "prebuild": "npm run clear",
+    "release": "npm run build"
+  },
+  "devDependencies": {
+    "normalize.css": "^7.0.0"
+  }
+}

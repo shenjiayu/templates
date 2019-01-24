@@ -1,0 +1,28 @@
+@block tc-loading {
+  align-items: center;
+  background-color: rgba(255, 255, 255, .9);
+  border-radius: inherit;
+  bottom: 0;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--loading-z-index);
+
+  @modifier fullsceen {
+    position: fixed;
+  }
+
+  @element content {
+    max-width: 100%;
+    padding: .5rem;
+  }
+}
+
+.tc-loading-lock {
+  overflow: hidden;
+}

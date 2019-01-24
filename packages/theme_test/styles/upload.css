@@ -1,0 +1,258 @@
+@block tc-upload {
+  display: block;
+  position: relative;
+
+  @modifier disabled {
+    opacity: .65;
+  }
+
+  @modifier text {
+    .tc-upload__item {
+      + .tc-upload__item {
+        margin-top: .25rem;
+      }
+    }
+  }
+
+  @modifier picture {
+    .tc-upload__item {
+      border-color: var(--border-color);
+      padding: .5rem;
+
+      + .tc-upload__item {
+        margin-top: .5rem;
+      }
+    }
+
+    .tc-upload__header {
+      background-color: var(--light-gray);
+      height: 3rem;
+      margin-right: .5rem;
+      width: 3rem;
+    }
+
+    .tc-upload__progress {
+      left: .5rem;
+      right: .5rem;
+    }
+  }
+
+  @modifier picture-card {
+    display: inline-block;
+    @apply --clearfix;
+
+    .tc-upload__zone {
+      display: none;
+    }
+
+    .tc-upload__list {
+      float: left;
+      margin-top: 0;
+      @apply --clearfix;
+    }
+
+    .tc-upload__item {
+      border-color: var(--border-color);
+      float: left;
+      height: 6rem;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
+      padding: .5rem;
+      width: 6rem;
+
+      &:hover {
+        border-color: color(var(--primary-color) lightness(75%));
+      }
+    }
+
+    .tc-upload__item--status {
+      & .tc-upload__footer {
+        background-color: #fff;
+        border-radius: 50%;
+      }
+    }
+
+    .tc-upload__item--zone {
+      align-items: center;
+      border-style: dashed;
+      color: var(--dark-gray);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+
+    .tc-upload__content {
+      height: 100%;
+      width: 100%;
+    }
+
+    .tc-upload__header {
+      height: 100%;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    .tc-upload__body {
+      display: none;
+    }
+
+    .tc-upload__footer {
+      position: absolute;
+      right: -.5rem;
+      top: -.5rem;
+    }
+
+    .tc-upload__remove {
+      background-color: #fff;
+    }
+
+    .tc-upload__progress {
+      left: .5rem;
+      right: .5rem;
+    }
+  }
+
+  @modifier picture, picture-card {
+    .tc-upload__item--success {
+      border-color: var(--success-color);
+    }
+
+    .tc-upload__item--error {
+      border-color: var(--danger-color);
+    }
+  }
+
+  @element input {
+    height: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: -1;
+  }
+
+  @element zone {
+    display: inline-block;
+  }
+
+  @element list {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: .5rem;
+    padding-left: 0;
+  }
+
+  @element item {
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    position: relative;
+    transition: all .15s;
+
+    &:hover {
+      border-color: color(var(--primary-color) lightness(75%));
+
+      .tc-upload__footer {
+        display: none;
+      }
+
+      .tc-upload__remove {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .tc-upload__progress {
+        background-color: transparent;
+      }
+    }
+
+    @modifier wait {
+      color: var(--secondary-color);
+    }
+
+    @modifier process {
+      color: var(--primary-color);
+    }
+
+    @modifier success {
+      color: var(--success-color);
+    }
+
+    @modifier error {
+      color: var(--danger-color);
+    }
+  }
+
+  @element content {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    position: relative;
+    transition: color .15s;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  @element header {
+    overflow: hidden;
+  }
+
+  @element body {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @element icon {
+    display: block;
+    padding: .25rem;
+
+    & > svg {
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+
+  @element image {
+    display: block;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @element remove {
+    border-radius: 50%;
+    color: var(--secondary-color);
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all .15s;
+    z-index: -1;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  @element progress {
+    background-color: var(--border-color);
+    bottom: -1px;
+    height: 1px;
+    left: .25rem;
+    position: absolute;
+    right: .25rem;
+  }
+}

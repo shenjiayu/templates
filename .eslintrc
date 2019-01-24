@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": true
+  },
+  "plugins": [
+    "html"
+  ],
+  "rules": {
+    "global-require": "off",
+    "import/extensions": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "linebreak-style": "off",
+    "no-loop-func": "off",
+    "no-param-reassign": "off",
+    "no-restricted-globals": "off",
+    "no-restricted-properties": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-expressions": "off",
+    "require-jsdoc": ["error", {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": true,
+        "ClassDeclaration": true,
+        "ArrowFunctionExpression": false
+      }
+    }],
+    "valid-jsdoc": ["error", {
+      "requireReturn": false
+    }]
+  }
+}

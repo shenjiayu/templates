@@ -1,0 +1,190 @@
+@block tc-step {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @modifier vertical {
+    flex-direction: column;
+
+    & .tc-step__item {
+      min-height: 4rem;
+      position: relative;
+
+      &:last-child {
+        min-height: 0;
+      }
+    }
+
+    & .tc-step__body {
+      margin-bottom: .5rem;
+    }
+
+    & .tc-step__line {
+      bottom: .5rem;
+      height: auto;
+      left: .75rem;
+      margin-left: 0;
+      position: absolute;
+      top: 2rem;
+      transform: translateX(-50%);
+      width: 1px;
+
+      &::before {
+        height: 0;
+        transition-property: height;
+        width: 100%;
+      }
+    }
+  }
+
+  @element item {
+    flex: 1;
+    margin-right: .5rem;
+
+    &:last-child {
+      flex: none;
+      margin-right: 0;
+
+      & .tc-step__line {
+        display: none;
+      }
+    }
+
+    @modifier finish {
+      color: var(--primary-color);
+
+      & .tc-step__sign {
+        border-color: var(--primary-color);
+      }
+
+      & .tc-step__line {
+        &::before {
+          background-color: var(--primary-color);
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    @modifier success {
+      color: var(--success-color);
+
+      & .tc-step__sign {
+        border-color: var(--success-color);
+      }
+
+      & .tc-step__line {
+        &::before {
+          background-color: var(--success-color);
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    @modifier error {
+      color: var(--danger-color);
+
+      & .tc-step__sign {
+        border-color: var(--danger-color);
+      }
+
+      & .tc-step__line {
+        &::before {
+          background-color: var(--danger-color);
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    @modifier process {
+      & .tc-step__sign {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: white;
+      }
+
+      & .tc-step__text {
+        color: var(--color);
+      }
+
+      & .tc-step__line {
+        &::before {
+          background-color: var(--primary-color);
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    @modifier wait {
+      color: var(--secondary-color);
+    }
+
+    @modifier active {
+      & .tc-step__line {
+        &::before {
+          height: 0;
+          width: 0;
+        }
+      }
+    }
+  }
+
+  @element header {
+    display: flex;
+  }
+
+  @element sign, icon {
+    display: inline-block;
+    height: 1.5rem;
+    position: relative;
+    min-width: 1.5rem;
+
+    & .tc-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @element sign {
+    border: 1px solid var(--light-color);
+    border-radius: .75rem;
+    font-size: var(--sm-font-size);
+    line-height: 1.375rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    text-align: center;
+    transition: background-color .15s;
+  }
+
+  @element text {
+    margin-left: .5rem;
+  }
+
+  @element line {
+    align-self: center;
+    background-color: var(--light-color);
+    flex: 1;
+    height: 1px;
+    margin-left: .5rem;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 100%;
+      transition: width .3s;
+      width: 0;
+    }
+  }
+
+  @element body {
+    color: var(--secondary-color);
+    font-size: var(--sm-font-size);
+    margin-left: 2rem;
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "tc-popover",
+  "version": "0.1.0",
+  "description": "Popover component for Vue.js.",
+  "main": "dist/tc-popover.common.js",
+  "module": "dist/tc-popover.ems.js",
+  "browser": "dist/tc-popover.js",
+  "style": "dist/tc-popover.css",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Chen Fengyuan",
+    "email": "chenfengyuan@outlook.com",
+    "url": "http://chenfengyuan.com"
+  },
+  "files": ["src", "dist", "types"],
+  "keywords": ["travel cart", "popover", "vue", "vue-component", "components", "ui", "framework", "web", "front-end"],
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "postcss src/index.css -o dist/tc-popover.css --no-map",
+    "build:js": "webpack --env.production --config ../../webpack.config.js",
+    "clear": "rimraf dist",
+    "compress": "npm run compress:js && npm run compress:css",
+    "compress:css": "postcss dist/tc-popover.css -u cssnano -o dist/tc-popover.min.css --no-map",
+    "compress:js": "webpack --env.production --env.minify --config ../../webpack.config.js",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:es": "eslint src test --ext .js,.jsx,.vue --fix",
+    "lint:ts": "tslint src/**/*.ts --fix",
+    "postbuild": "npm run compress",
+    "prebuild": "npm run clear",
+    "release": "npm run lint && npm run build && npm test",
+    "test": "karma start ../../karma.config.js"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "vue": "^2.4.0"
+  }
+}

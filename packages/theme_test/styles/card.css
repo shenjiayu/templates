@@ -1,0 +1,52 @@
+@block tc-card {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  word-wrap: break-word;
+
+  @element image__container {
+    position: relative;
+
+    & > img {
+      width: 100%;
+    }
+
+    & > .tc-card__product__info {
+      position: absolute;
+      bottom: 0;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+
+  & > :first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+
+  & > :last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  @element header {
+    border-bottom: var(--border);
+    padding: 1rem;
+  }
+
+  @element body {
+    flex: 1 1 auto;
+    padding: 1rem;
+  }
+
+  @element footer {
+    border-top: var(--border);
+    padding: 1rem;
+  }
+}

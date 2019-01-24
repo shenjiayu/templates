@@ -1,0 +1,97 @@
+@block tc-input {
+  border: 1px solid var(--light-color);
+  border-radius: var(--border-radius);
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 1.5rem;
+  padding: var(--md-padding);
+  transition: border-color .15s;
+  width: 100%;
+
+  &:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  &[readonly] {
+    background-color: var(--light-gray);
+  }
+
+  &:disabled {
+    background-color: var(--light-gray);
+    opacity: .65;
+  }
+
+  @modifier inline {
+    display: inline-block;
+    width: auto;
+  }
+
+  @modifier small {
+    border-radius: var(--sm-border-radius);
+    font-size: var(--sm-font-size);
+    padding: var(--sm-padding);
+  }
+
+  @modifier large {
+    border-radius: var(--lg-border-radius);
+    font-size: var(--lg-font-size);
+    padding: var(--lg-padding);
+  }
+}
+
+@block tc-input-group {
+  display: flex;
+
+  & > :first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  & > :last-child:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  & > :not(:first-child, :last-child) {
+    border-radius: 0;
+  }
+
+  & > :not(:first-child) {
+    margin-left: -1px;
+
+    &:focus,
+    &:hover {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  @modifier small {
+    & > .tc-input-group__addon {
+      border-radius: var(--sm-border-radius);
+      font-size: var(--sm-font-size);
+      padding: var(--sm-padding);
+    }
+  }
+
+  @modifier large {
+    & > .tc-input-group__addon {
+      border-radius: var(--lg-border-radius);
+      font-size: var(--lg-font-size);
+      padding: var(--lg-padding);
+    }
+  }
+
+  @element addon {
+    background-color: var(--border-color);
+    border: 1px solid var(--light-color);
+    border-radius: var(--border-radius);
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5;
+    min-height: 1.5rem;
+    padding: var(--md-padding);
+  }
+}

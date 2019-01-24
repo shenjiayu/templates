@@ -1,0 +1,441 @@
+@block tc-button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  display: inline-flex;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 2.5rem;
+  padding: var(--md-padding);
+  text-align: center;
+  transition: all .15s ease-in-out;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 2px color(var(--blue) lightness(10%));
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:disabled {
+    opacity: .65;
+    box-shadow: none;
+  }
+
+  &:active {
+    background-image: none;
+  }
+
+  @modifier primary {
+    color: white;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: color(var(--primary-color) blackness(25%));
+      border-color: color(var(--primary-color) blackness(25%));
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+    }
+  }
+
+  @modifier secondary {
+    color: white;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: color(var(--secondary-color) blackness(40%));
+      border-color: color(var(--secondary-color) blackness(40%));
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+      }
+    }
+  }
+
+  @modifier success {
+    color: white;
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: color(var(--success-color) blackness(25%));
+      border-color: color(var(--success-color) blackness(25%));
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: var(--success-color);
+        border-color: var(--success-color);
+      }
+    }
+  }
+
+  @modifier danger {
+    color: white;
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: color(var(--danger-color) blackness(10%));
+      border-color: color(var(--danger-color) blackness(10%));
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: var(--danger-color);
+        border-color: var(--danger-color);
+      }
+    }
+  }
+
+  @modifier warning {
+    color: white;
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: color(var(--warning-color) blackness(10%));
+      border-color: color(var(--warning-color) blackness(10%));
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        color: white;
+        background-color: var(--warning-color);
+        border-color: var(--warning-color);
+      }
+    }
+  }
+
+  @modifier info {
+    color: white;
+    background-color: var(--info-color);
+    border-color: var(--info-color);
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: color(var(--info-color) blackness(25%));
+      border-color: color(var(--info-color) blackness(25%));
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: var(--info-color);
+        border-color: var(--info-color);
+      }
+    }
+  }
+
+  @modifier light {
+    background-color: var(--light-color);
+    border-color: var(--light-color);
+
+    &:hover,
+    &:focus {
+      background-color: color(var(--light-color) blackness(25%));
+      border-color: color(var(--light-color) blackness(25%));
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: var(--light-color);
+        border-color: var(--light-color);
+      }
+    }
+  }
+
+  @modifier dark {
+    color: white;
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: black;
+      border-color: black;
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: var(--dark-color);
+        border-color: var(--dark-color);
+      }
+    }
+  }
+
+  @modifier link {
+    color: var(--primary-color);
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      color: color(var(--primary-color) blackness(25%)) !important;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:disabled {
+      color: var(--primary-color);
+    }
+  }
+
+  @modifier outline {
+    background-color: white;
+
+    &:hover,
+    &:focus {
+      color: white !important;
+    }
+
+    &:disabled {
+      &:hover,
+      &:focus {
+        background-color: white;
+      }
+    }
+
+    &.tc-button--primary {
+      color: var(--primary-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--primary-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--secondary {
+      color: var(--secondary-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--secondary-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--success {
+      color: var(--success-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--success-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--info {
+      color: var(--info-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--info-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--warning {
+      color: var(--warning-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--warning-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--danger {
+      color: var(--danger-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--danger-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--light {
+      color: var(--light-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--light-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--dark {
+      color: var(--dark-color);
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--dark-color) !important;
+        }
+      }
+    }
+
+    &.tc-button--link {
+      background-color: transparent;
+
+      &:hover,
+      &:focus {
+        color: color(var(--primary-color) blackness(25%)) !important;
+      }
+
+      &:disabled {
+        &:hover,
+        &:focus {
+          color: var(--primary-color) !important;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @modifier small {
+    border-radius: var(--sm-border-radius);
+    font-size: var(--sm-font-size);
+    min-height: 2rem;
+    padding: var(--sm-padding);
+
+    & .tc-button__icon {
+      height: var(--sm-font-size);
+      width: var(--sm-font-size);
+    }
+  }
+
+  @modifier large {
+    border-radius: var(--lg-border-radius);
+    font-size: var(--lg-font-size);
+    min-height: 3rem;
+    padding: var(--lg-padding);
+
+    & .tc-button__icon {
+      height: var(--lg-font-size);
+      width: var(--lg-font-size);
+    }
+  }
+
+  @modifier block {
+    display: flex;
+    width: 100%;
+
+    & + .tc-button--block {
+      margin-top: .5rem;
+    }
+  }
+
+  @modifier rounded {
+    border-radius: 10rem;
+    padding-left: .6875rem;
+    padding-right: .6875rem;
+
+    &.tc-button--small {
+      padding-left: .46875rem;
+      padding-right: .46875rem;
+    }
+
+    &.tc-button--large {
+      padding-left: .8125rem;
+      padding-right: .8125rem;
+    }
+  }
+
+  @element icon {
+    height: 1rem;
+    width: 1rem;
+
+    @modifier start {
+      align-self: flex-start center;
+      margin-right: .25rem;
+    }
+
+    @modifier end {
+      align-self: flex-end center;
+      margin-left: .25rem;
+      order: 1;
+    }
+  }
+}
+
+@block tc-button-group {
+  display: inline-flex;
+  vertical-align: middle;
+
+  & .tc-button {
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  @modifier vertical {
+    flex-direction: column;
+
+    & .tc-button {
+      &:first-child {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-left-radius: 0;
+      }
+
+      &:last-child {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: var(--border-radius);
+      }
+    }
+  }
+}

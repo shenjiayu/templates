@@ -1,0 +1,96 @@
+@block tc-checkbox {
+  display: inline-block;
+  min-height: 1.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+
+  & + .tc-checkbox {
+    margin-left: 1rem;
+  }
+
+  @element input, indicator {
+    left: 0;
+    position: absolute;
+    top: .25rem;
+    width: 1rem;
+  }
+
+  @element input {
+    height: 1rem;
+    opacity: 0;
+    z-index: 1;
+
+    &:focus + .tc-checkbox__indicator {
+      &::before {
+        box-shadow: 0 0 3px var(--primary-color);
+      }
+    }
+
+    &:indeterminate + .tc-checkbox__indicator {
+      &::before {
+        background-color: white;
+        border-color: var(--primary-color);
+        border-width: .425rem .25rem;
+      }
+    }
+
+    &:checked + .tc-checkbox__indicator {
+      &::before {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      &::after {
+        opacity: 1;
+        transition-delay: .15s;
+      }
+    }
+
+    &:disabled + .tc-checkbox__indicator {
+      background-color: var(--light-color);
+    }
+  }
+
+  @element indicator {
+    background-color: white;
+    border-radius: .25rem;
+    display: block;
+    font-size: 0;
+    height: 1rem;
+    width: 1rem;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      transition: all .15s;
+    }
+
+    &::before {
+      border: 1px solid var(--secondary-color);
+      border-radius: inherit;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      transition: all .15s;
+    }
+
+    &::after {
+      border-bottom: .125rem solid white;
+      border-left: .125rem solid white;
+      height: .3rem;
+      left: 50%;
+      opacity: 0;
+      top: 50%;
+      transform: translate(-50%, -75%) rotate(-45deg);
+      transition: opacity .15s;
+      width: .5rem;
+    }
+  }
+
+  @modifier disabled {
+    opacity: .65;
+  }
+}

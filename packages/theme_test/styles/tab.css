@@ -1,0 +1,25 @@
+@block tab {
+    @element items {
+        display: flex;
+    }
+
+    @element items__item {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        color: var(--dark-gray);
+
+        &.active {
+            color: var(--dark-color);
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        & > span {
+            margin-left: 0.25em;
+        }
+    }
+}

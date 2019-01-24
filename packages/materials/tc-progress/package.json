@@ -1,0 +1,39 @@
+{
+  "name": "tc-progress",
+  "version": "0.1.0",
+  "description": "Progress component for Vue.js.",
+  "main": "dist/tc-progress.common.js",
+  "module": "dist/tc-progress.ems.js",
+  "browser": "dist/tc-progress.js",
+  "style": "dist/tc-progress.css",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Chen Fengyuan",
+    "email": "chenfengyuan@outlook.com",
+    "url": "http://chenfengyuan.com"
+  },
+  "files": ["src", "dist", "types", "types"],
+  "keywords": ["travel cart", "progress", "vue", "vue-component", "components", "ui", "framework", "web", "front-end"],
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "postcss src/index.css -o dist/tc-progress.css --no-map",
+    "build:js": "webpack --env.production --config ../../webpack.config.js",
+    "clear": "rimraf dist",
+    "compress": "npm run compress:js && npm run compress:css",
+    "compress:css": "postcss dist/tc-progress.css -u cssnano -o dist/tc-progress.min.css --no-map",
+    "compress:js": "webpack --env.production --env.minify --config ../../webpack.config.js",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:es": "eslint src test --ext .js,.jsx,.vue --fix",
+    "lint:ts": "tslint src/**/*.ts --fix",
+    "postbuild": "npm run compress",
+    "prebuild": "npm run clear",
+    "release": "npm run lint && npm run build && npm test",
+    "test": "karma start ../../karma.config.js"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "vue": "^2.4.0"
+  }
+}

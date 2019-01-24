@@ -1,0 +1,251 @@
+@block tc-carousel {
+  position: relative;
+  touch-action: none;
+  user-select: none;
+
+  @modifier up, down {
+    & > .tc-carousel__indicators {
+      bottom: auto;
+      flex-direction: column;
+      left: auto;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      & > .tc-carousel__indicator {
+        &::before {
+          height: 100%;
+          width: .125rem;
+        }
+      }
+    }
+
+    & > .tc-carousel__indicators--disc {
+      & > .tc-carousel__indicator {
+        height: .75rem;
+        width: 1.5rem;
+
+        &::before {
+          height: .5rem;
+          width: .5rem;
+        }
+      }
+    }
+  }
+
+  @modifier right {
+    & > .tc-carousel__indicators {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @modifier down {
+    & > .tc-carousel__indicators {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @modifier controls {
+    &:hover {
+      & > .tc-carousel__control {
+        opacity: .5;
+        z-index: 1;
+        transform: translateX(0);
+
+        &:focus,
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    & > .tc-carousel__control {
+      opacity: 0;
+      z-index: -1;
+    }
+
+    & > .tc-carousel__control--prev {
+      transform: translateX(-50%);
+    }
+
+    & > .tc-carousel__control--next {
+      transform: translateX(50%);
+    }
+  }
+
+  @modifier indicators {
+    &:hover {
+      & > .tc-carousel__indicators {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+
+    & > .tc-carousel__indicators {
+      opacity: 0;
+      transition: opacity .15s;
+      z-index: -1;
+    }
+  }
+
+  @element list {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  @element item {
+    display: none;
+
+    @modifier active, top, right, bottom, left {
+      display: block;
+      transition: transform .6s ease-in-out;
+      width: 100%;
+    }
+
+    @modifier top, right, bottom, left {
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    @modifier top {
+      transform: translateY(-100%);
+
+      &.tc-carousel__item--to-bottom {
+        transform: translateY(0);
+      }
+    }
+
+    @modifier right {
+      transform: translateX(100%);
+
+      &.tc-carousel__item--to-left {
+        transform: translateX(0);
+      }
+    }
+
+    @modifier bottom {
+      transform: translateY(100%);
+
+      &.tc-carousel__item--to-top {
+        transform: translateY(0);
+      }
+    }
+
+    @modifier left {
+      transform: translateX(-100%);
+
+      &.tc-carousel__item--to-right {
+        transform: translateX(0);
+      }
+    }
+
+    @modifier active {
+      transform: translate(0, 0);
+      z-index: 1;
+
+      &.tc-carousel__item--to-top {
+        transform: translateY(-100%);
+      }
+
+      &.tc-carousel__item--to-right {
+        transform: translateX(100%);
+      }
+
+      &.tc-carousel__item--to-bottom {
+        transform: translateY(100%);
+      }
+
+      &.tc-carousel__item--to-left {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  @element indicators {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    @modifier disc {
+      & > .tc-carousel__indicator {
+        width: .75rem;
+
+        &::before {
+          border-radius: 50%;
+          height: .5rem;
+          width: .5rem;
+        }
+      }
+    }
+  }
+
+  @element indicator {
+    cursor: pointer;
+    height: 1.5rem;
+    margin: .125rem;
+    opacity: .5;
+    position: relative;
+    transition: opacity .15s;
+    width: 1.5rem;
+
+    &::before {
+      background-color: #fff;
+      content: "";
+      display: block;
+      height: .125rem;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+    @modifier active {
+      opacity: 1;
+    }
+  }
+
+  @element control {
+    background-color: rgba(0, 0, 0, .5);
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    height: 2rem;
+    margin-top: -1rem;
+    opacity: .5;
+    padding: .5rem;
+    position: absolute;
+    top: 50%;
+    transition: all .15s;
+    width: 2rem;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @modifier prev {
+      left: 1rem;
+    }
+
+    @modifier next {
+      right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@block tc-progress {
+  align-items: center;
+  background-color: var(--light-color);
+  border-radius: 10rem;
+  display: flex;
+  font-size: .75rem;
+  height: 1rem;
+  line-height: 1rem;
+  overflow: hidden;
+  text-align: right;
+
+  @element bar {
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: inherit;
+    color: white;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: width .3s;
+    width: 0;
+
+    @modifier success {
+      background-color: var(--success-color);
+    }
+
+    @modifier warning {
+      background-color: var(--warning-color);
+    }
+
+    @modifier danger {
+      background-color: var(--danger-color);
+    }
+
+    @modifier info {
+      background-color: var(--info-color);
+    }
+  }
+
+  @element text {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}

@@ -1,0 +1,8 @@
+*.map
+.idea
+.npmrc
+.sublime
+.vscode
+dist
+lerna-debug.log
+node_modules

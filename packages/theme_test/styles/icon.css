@@ -1,0 +1,14 @@
+@block tc-icon {
+  display: inline-block;
+  overflow: hidden;
+
+  @modifier rotation {
+    animation: tc-animation--rotation 2s linear infinite;
+  }
+
+  @element content {
+    display: block;
+    height: inherit;
+    width: inherit;
+  }
+}

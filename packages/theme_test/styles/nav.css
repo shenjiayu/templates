@@ -1,0 +1,64 @@
+@block header {
+	background-color: var(--primary-color);
+	border-bottom: 1px solid #eee;
+	color: white;
+	line-height: 3rem;
+
+	& > div {
+		display: flex;
+	}
+
+	@element brand {
+		color: white;
+		font-size: 1.125rem;
+		text-decoration: none;
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	@element middle__nav {
+		padding: 0 1rem;
+
+		& > div > a {
+			color: white;
+			opacity: .75;
+			text-decoration: none;
+
+			&:focus,
+			&:hover {
+				color: white;
+				opacity: 1;
+			}
+
+			& + a {
+				margin-left: .5rem;
+			}
+		}
+	}
+
+	@element right__nav {
+		margin-left: auto;
+
+		& > div > a {
+			color: white;
+			opacity: .75;
+			text-decoration: none;
+
+			&:focus,
+			&:hover {
+				color: white;
+				opacity: 1;
+			}
+
+			& > i {
+				vertical-align: middle;
+			}
+
+			& + a {
+				margin-left: .5rem;
+			}
+		}
+	}
+}

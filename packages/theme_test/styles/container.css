@@ -1,0 +1,28 @@
+@block tc-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+
+  @modifier fluid {
+    width: 100% !important;
+  }
+
+  @media (--sm-viewport-up) {
+    width: var(--sm-container-width);
+  }
+
+  @media (--md-viewport-up) {
+    width: var(--md-container-width);
+  }
+
+  @media (--lg-viewport-up) {
+    width: var(--lg-container-width);
+  }
+
+  @media (--xl-viewport-up) {
+    width: var(--xl-container-width);
+  }
+}

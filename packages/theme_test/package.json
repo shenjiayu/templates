@@ -1,0 +1,51 @@
+{
+  "name": "theme_test",
+  "version": "0.7.2",
+  "description": "A series of Vue components.",
+  "bin_bak": "dist/theme_test.common",
+  "main": "dist/theme_test.common",
+  "style": "dist/theme_test.css",
+  "license": "MIT",
+  "repository": "",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "theme_test",
+    "vue",
+    "vue-component",
+    "components",
+    "ui",
+    "framework",
+    "web",
+    "front-end"
+  ],
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "postcss src/index.css -o dist/theme_test.css --no-map",
+    "build:docs": "webpack --env.minify --config ../../webpack.config.js",
+    "build:js": "webpack --env.production --config ../../webpack.config.js",
+    "clear": "rimraf dist",
+    "clear:docs": "rimraf ../../docs",
+    "compress": "npm run compress:js && npm run compress:css",
+    "compress:css": "postcss dist/theme_test.css -u cssnano -o dist/theme_test.min.css --no-map",
+    "compress:js": "webpack --env.production --env.minify --config ../../webpack.config.js",
+    "deploy": "npm run lint:docs && npm run clear:docs && npm run build:docs",
+    "dev": "webpack-dev-server --config ../../webpack.config.js",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:docs": "eslint docs --ext .js,.vue --fix",
+    "lint:es": "eslint src test --ext .js,.vue --fix",
+    "lint:ts": "tslint src/**/*.ts --fix",
+    "postbuild": "npm run compress",
+    "prebuild": "npm run clear",
+    "release": "npm run lint && npm run build && npm run deploy && npm test",
+    "start": "npm run dev",
+    "test": "karma start ../../karma.config.js"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "vue": "^2.4.0"
+  },
+  "dependencies": {}
+}

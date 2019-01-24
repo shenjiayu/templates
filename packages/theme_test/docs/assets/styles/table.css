@@ -1,0 +1,35 @@
+@block table {
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  & th,
+  & td {
+    padding: 10px 15px;
+  }
+
+  & th {
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  @modifier bordered {
+    & th,
+    & td {
+      border: var(--border);
+    }
+  }
+
+  @modifier striped {
+    & > tbody > tr:nth-child(odd) {
+      background-color: #f8f8f8;
+    }
+  }
+
+  @modifier responsive {
+    @media (--lg-viewport-down) {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+}

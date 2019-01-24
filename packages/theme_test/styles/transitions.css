@@ -1,0 +1,20 @@
+.tc-transition--fade-enter-active,
+.tc-transition--fade-leave-active {
+  transition: opacity .15s;
+}
+
+.tc-transition--fade-enter,
+.tc-transition--fade-leave-to {
+  opacity: 0;
+}
+
+.tc-transition--collapse-enter-active,
+.tc-transition--collapse-leave-active {
+  overflow: hidden;
+  transition: height .3s;
+}
+
+.tc-transition--collapse-enter,
+.tc-transition--collapse-leave-to {
+  height: 0;
+}

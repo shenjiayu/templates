@@ -1,0 +1,51 @@
+@block tc-select {
+  border: 1px solid var(--light-color);
+  border-radius: var(--border-radius);
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 1.5rem;
+  padding: var(--md-padding);
+  transition: border-color .15s;
+  width: 100%;
+
+  &:not([size]):not([multiple]) {
+    height: var(--md-height);
+  }
+
+  &:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: var(--light-gray);
+    opacity: .65;
+  }
+
+  @modifier inline {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  @modifier small {
+    border-radius: var(--sm-border-radius);
+    font-size: var(--sm-font-size);
+    padding: var(--sm-padding);
+
+    &:not([size]):not([multiple]) {
+      height: var(--sm-height);
+    }
+  }
+
+  @modifier large {
+    border-radius: var(--lg-border-radius);
+    font-size: var(--lg-font-size);
+    padding: var(--lg-padding);
+
+    &:not([size]):not([multiple]) {
+      height: var(--lg-height);
+    }
+  }
+}

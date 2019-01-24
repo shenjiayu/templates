@@ -1,0 +1,140 @@
+@block tc-number-input {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  @element button {
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--border-radius);
+    bottom: 1px;
+    position: absolute;
+    top: 1px;
+    width: 2.5rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: var(--primary-color);
+      }
+    }
+
+    &:disabled {
+      &::before,
+      &::after {
+        background-color: var(--light-color);
+      }
+    }
+
+    &::before,
+    &::after {
+      background-color: var(--color);
+      content: "";
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: background-color .15s;
+    }
+
+    &::before {
+      height: 1px;
+      width: 50%;
+    }
+
+    &::after {
+      height: 50%;
+      width: 1px;
+    }
+
+    @modifier minus {
+      border-right: 1px solid var(--light-color);
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      left: 1px;
+
+      &::after {
+        visibility: hidden;
+      }
+    }
+
+    @modifier plus {
+      border-left: 1px solid var(--light-color);
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      right: 1px;
+    }
+  }
+
+  @element input {
+    max-width: 100%;
+    min-width: 3rem;
+    width: 100%;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+  }
+
+  @modifier inline {
+    display: inline-block;
+    width: 12.5rem;
+  }
+
+  @modifier center {
+    & > input {
+      text-align: center;
+    }
+  }
+
+  @modifier controls {
+    & > input {
+      padding-left: 3.375rem;
+      padding-right: 3.375rem;
+    }
+  }
+
+  @modifier small {
+    &.tc-number-input--inline {
+      & > input {
+        width: 10rem;
+      }
+    }
+
+    &.tc-number-input--controls {
+      & > button {
+        width: 2rem;
+      }
+
+      & > input {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
+    }
+  }
+
+  @modifier large {
+    &.tc-number-input--inline {
+      & > input {
+        width: 15rem;
+      }
+    }
+
+    &.tc-number-input--controls {
+      & > button {
+        width: 3rem;
+      }
+
+      & > input {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+    }
+  }
+}

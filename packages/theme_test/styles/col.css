@@ -1,0 +1,223 @@
+@block tc-col {
+  max-width: 100%;
+  min-height: 1px;
+  position: relative;
+  width: 100%;
+
+  @modifier align-self-start {
+    align-self: flex-start !important;
+  }
+
+  @modifier align-self-center {
+    align-self: center !important;
+  }
+
+  @modifier align-self-end {
+    align-self: flex-end !important;
+  }
+
+  @modifier span {
+    flex: 1;
+  }
+
+  @for $i from 1 to 12 {
+    @modifier span-$(i) {
+      flex-basis: calc(($(i) / 12) * 100)%;
+      max-width: calc(($(i) / 12) * 100)%;
+    }
+  }
+
+  @modifier span-auto {
+    flex: none;
+    max-width: none;
+    width: auto;
+  }
+
+  @for $i from 1 to 12 {
+    @modifier order-$(i) {
+      order: $(i);
+    }
+  }
+
+  @modifier order-auto {
+    order: initial;
+  }
+
+  @for $i from 1 to 12 {
+    @modifier offset-$(i) {
+      margin-left: calc(($(i) / 12) * 100)% !important;
+    }
+  }
+
+  @modifier offset-auto {
+    margin-left: auto !important;
+  }
+}
+
+@media (--sm-viewport-up) {
+  @block tc-col {
+    @modifier span-sm {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier span-sm-$(i) {
+        flex-basis: calc(($(i) / 12) * 100)%;
+        max-width: calc(($(i) / 12) * 100)%;
+      }
+    }
+
+    @modifier span-sm-auto {
+      flex: none;
+      max-width: none;
+      width: auto;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier order-sm-$(i) {
+        order: $(i);
+      }
+    }
+
+    @modifier order-sm-auto {
+      order: initial;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier offset-sm-$(i) {
+        margin-left: calc(($(i) / 12) * 100)% !important;
+      }
+    }
+
+    @modifier offset-sm-auto {
+      margin-left: auto !important;
+    }
+  }
+}
+
+@media (--md-viewport-up) {
+  @block tc-col {
+    @modifier span-md {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier span-md-$(i) {
+        flex-basis: calc(($(i) / 12) * 100)%;
+        max-width: calc(($(i) / 12) * 100)%;
+      }
+    }
+
+    @modifier span-md-auto {
+      flex: none;
+      max-width: none;
+      width: auto;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier order-md-$(i) {
+        order: $(i);
+      }
+    }
+
+    @modifier order-md-auto {
+      order: initial;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier offset-md-$(i) {
+        margin-left: calc(($(i) / 12) * 100)% !important;
+      }
+    }
+
+    @modifier offset-md-auto {
+      margin-left: auto !important;
+    }
+  }
+}
+
+@media (--lg-viewport-up) {
+  @block tc-col {
+    @modifier span-lg {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier span-lg-$(i) {
+        flex-basis: calc(($(i) / 12) * 100)%;
+        max-width: calc(($(i) / 12) * 100)%;
+      }
+    }
+
+    @modifier span-lg-auto {
+      flex: none;
+      max-width: none;
+      width: auto;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier order-lg-$(i) {
+        order: $(i);
+      }
+    }
+
+    @modifier order-lg-auto {
+      order: initial;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier offset-lg-$(i) {
+        margin-left: calc(($(i) / 12) * 100)% !important;
+      }
+    }
+
+    @modifier offset-lg-auto {
+      margin-left: auto !important;
+    }
+  }
+}
+
+@media (--xl-viewport-up) {
+  @block tc-col {
+    @modifier span-xl {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier span-xl-$(i) {
+        flex-basis: calc(($(i) / 12) * 100)%;
+        max-width: calc(($(i) / 12) * 100)%;
+      }
+    }
+
+    @modifier span-xl-auto {
+      flex: none;
+      max-width: none;
+      width: auto;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier order-xl-$(i) {
+        order: $(i);
+      }
+    }
+
+    @modifier order-xl-auto {
+      order: initial;
+    }
+
+    @for $i from 1 to 12 {
+      @modifier offset-xl-$(i) {
+        margin-left: calc(($(i) / 12) * 100)% !important;
+      }
+    }
+
+    @modifier offset-xl-auto {
+      margin-left: auto !important;
+    }
+  }
+}

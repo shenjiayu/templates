@@ -1,0 +1,42 @@
+{
+  "name": "tc-utils",
+  "version": "0.1.0",
+  "description": "Utils for TC.",
+  "main": "dist/tc-utils.common.js",
+  "module": "dist/tc-utils.esm.js",
+  "browser": "dist/tc-utils.js",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Chen Fengyuan",
+    "email": "chenfengyuan@outlook.com",
+    "url": "http://chenfengyuan.com"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "travel cart",
+    "utils",
+    "vue",
+    "vue-component",
+    "components",
+    "ui",
+    "framework",
+    "web",
+    "front-end"
+  ],
+  "scripts": {
+    "build": "webpack --env.production --config ../../webpack.config.js",
+    "clear": "rimraf dist",
+    "compress": "webpack --env.production --env.minify --config ../../webpack.config.js",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:es": "eslint src test --ext .js,.jsx,.vue --fix",
+    "lint:ts": "tslint src/**/*.ts --fix",
+    "postbuild": "npm run compress",
+    "prebuild": "npm run clear",
+    "release": "npm run lint && npm run build && npm test",
+    "test": "karma start ../../karma.config.js"
+  }
+}

@@ -1,0 +1,80 @@
+@block tc-tooltip {
+  background-clip: padding-box;
+  background-color: var(--dark-color);
+  border-radius: var(--border-radius);
+  border: var(--border);
+  display: block;
+  font-family: var(--font-family);
+  font-size: .875rem;
+  font-style: normal;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.5;
+  max-width: 18rem;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  top: 0;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: break-word;
+  z-index: var(--tooltip-z-index);
+
+  @modifier top {
+    margin-bottom: .25rem;
+
+    & .tc-tooltip__arrow {
+      border-bottom-width: 0;
+      border-top-color: var(--dark-color);
+      top: 100%;
+    }
+  }
+
+  @modifier right {
+    margin-left: .25rem;
+
+    & .tc-tooltip__arrow {
+      border-left-width: 0;
+      border-right-color: var(--dark-color);
+      right: 100%;
+    }
+  }
+
+  @modifier bottom {
+    margin-top: .25rem;
+
+    & .tc-tooltip__arrow {
+      border-top-width: 0;
+      border-bottom-color: var(--dark-color);
+      bottom: 100%;
+    }
+  }
+
+  @modifier left {
+    margin-right: .25rem;
+
+    & .tc-tooltip__arrow {
+      border-right-width: 0;
+      border-left-color: var(--dark-color);
+      left: 100%;
+    }
+  }
+
+  @element arrow {
+    border: .25rem solid transparent;
+    display: block;
+    height: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  @element inner {
+    color: #fff;
+    padding: .25rem .5rem;
+  }
+}
