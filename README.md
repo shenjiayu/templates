@@ -1,6 +1,3 @@
-- Eks is the pronunciation of the letter X.
-- [Docs & Demo](https://xkeshi.github.io/eks)
-
 ### Todo
 - use styled component [styled-component](https://github.com/styled-components/vue-styled-components) instead of large css file
 - remove typescript from project
